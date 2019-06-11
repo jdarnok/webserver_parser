@@ -1,7 +1,11 @@
 class LogParser
-  LOG_PATTERN = %r{(\/[\w]+[\/]*\w*) ([\d.]+)$}
   def self.call(file)
-    log_content = File.open(file, 'r').read
-    log_content.scan(LOG_PATTERN)
+    links = []
+    File.open(file, 'r') do |log|
+      while (line = log.gets)
+        links << line.split unless line.empty?
+      end
+    end
+    links
   end
 end
