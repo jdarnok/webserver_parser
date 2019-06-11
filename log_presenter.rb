@@ -1,9 +1,6 @@
 class LogPresenter
   def self.call(results)
-    order_str = "Order"
-    path_str = "Path"
-    occurrences_str = "Occurrences"
-    printf("%4s\t%-20s\t%s\n", order_str, path_str, occurrences_str)
+    printf("%4s\t%-20s\t%s\n", 'Order', 'Path', 'Occurrences')
     results.each_with_index do |result, i|
       next unless result.size == 2
 
